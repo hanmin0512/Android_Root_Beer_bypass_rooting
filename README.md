@@ -71,3 +71,17 @@ ls -al
 실행 결과: BusyBox Binary, SU Binary, 2nd SU Binary check가 루팅 탐지에 걸렸다.
 
 #### frida-server 백그라운드 실행 (nox_adb)
+
+```shell
+cd /data/local/tmp
+
+./frida-server &
+```
+
+![image](https://github.com/user-attachments/assets/06e58f6d-b5b6-4e00-a352-1b6851d13be8)
+
+#### 후킹 할 앱 코드 분석 (Desktop)
+
+
+
+
