@@ -19,6 +19,7 @@
 ### 수행 환경
 
 OS: Android (NoX)
+
 Application: RootBeer Sample
 
 ## 수행 및 수행 결과
