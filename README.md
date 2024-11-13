@@ -82,6 +82,34 @@ cd /data/local/tmp
 
 #### 후킹 할 앱 코드 분석 (Desktop)
 
+JADX를 실행하고 추출한 앱 apk파일을 불러와 AndroidManifest.xml 파일을 열어본다.
 
+![image](https://github.com/user-attachments/assets/3bd92423-be56-4559-9cc6-397f96c9eaf7)
 
+코드를 보면 
+
+```
+package="com.scottyab.rootbeer.sample" // Line 7
+
+android:name="com.scottyab.rootbeer.sample.MainActivity" // Line 19
+
+```
+
+주요 소스코드 파일 위치를 유추 할 수 있다.
+
+![image](https://github.com/user-attachments/assets/14ca5e45-c849-49ef-b595-b76c537a1b05)
+
+그 중 우리는 앱 이름과 일치하는 RootBeer 파일의 소스코드를 분석해 볼 것이다.
+
+![image](https://github.com/user-attachments/assets/8b7f0353-fc6a-42d8-b725-f059edea5f1b)
+
+위 그림과 같이 루팅을 탐지하는 함수로 유추되는 소스코드가 존재한다.
+
+앱 실행 했을 때 BusyBox Binary, SU Binary, 2nd SU Binary check가 탐지 되었다.
+
+Ctrl + f 를 이용해 각 내용들을 검색해 보겠다.
+
+![image](https://github.com/user-attachments/assets/31c55b38-3998-49f0-9a76-f3f731fe5b42)
+
+BusyBox Binary, SU Binary에 대한 함수를 찾았다.
 
