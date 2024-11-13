@@ -26,3 +26,48 @@ Application: RootBeer Sample
 
 ### 수행
 
+
+#### 1. nox_adb shell 접속
+
+```shell
+nox_adb shell
+```
+
+![image](https://github.com/user-attachments/assets/d27b4d06-0b0c-46b4-88d5-39778431b08b)
+
+
+#### 2. 추출 할 앱 찾기 (nox_adb)
+
+```shell
+pm list packages -l | grep beer
+```
+
+결과: /data/app/com.scottyab.rootbeer.sample-2/base.apk=com.scottyab.rootbeer.sample
+
+복사할 부분: /data/app/com.scottyab.rootbeer.sample-2/base.apk
+
+![image](https://github.com/user-attachments/assets/9f6cba10-f292-4c35-8634-65948d76b524)
+
+
+
+
+#### 3. 앱 추출 (Desktop cmd)
+
+```shell
+nox_adb pull /data/app/com.scottyab.rootbeer.sample-2/base.apk
+
+ls -al
+```
+
+![image](https://github.com/user-attachments/assets/164a6383-5137-41df-b8e6-f247debba5b0)
+
+
+#### 앱 실행 및 분석 (nox)
+
+![image](https://github.com/user-attachments/assets/263c5716-3d56-48f3-ba87-f082ee8eb5cb)
+
+![image](https://github.com/user-attachments/assets/bbf2e854-bab5-435a-bb6b-ef0089d9475c)
+
+실행 결과: BusyBox Binary, SU Binary, 2nd SU Binary check가 루팅 탐지에 걸렸다.
+
+#### frida-server 백그라운드 실행 (nox_adb)
