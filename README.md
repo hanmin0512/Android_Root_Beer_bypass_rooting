@@ -223,10 +223,9 @@ Java.perform(function(){
 
 ```
 
-// beer.js
 Java.perform(function(){
     let RootBeer1 = Java.use("com.scottyab.rootbeer.RootBeer");
-    RootBeer["checkForSuBinary"].implementation = function () {
+    RootBeer1["checkForSuBinary"].implementation = function () {
     console.log(`RootBeer.checkForSuBinary is called`);
     let result = !this["checkForSuBinary"]();
     console.log(`RootBeer.checkForSuBinary result=${result}`);
@@ -234,7 +233,27 @@ Java.perform(function(){
     }
 
 
-    let RootBeer2 = Java.use("com.scottyab.rootbeer.과(Desktop cmd)
+    let RootBeer2 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer2["checkForBusyBoxBinary"].implementation = function () {
+    console.log(`RootBeer.checkForBusyBoxBinary is called`);
+    let result = !this["checkForBusyBoxBinary"]();
+    console.log(`RootBeer.checkForBusyBoxBinary result=${result}`);
+    return result;
+    }
+
+
+    let RootBeer3 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer3["checkSuExists"].implementation = function () {
+    console.log(`RootBeer.checkSuExists is called`);
+    let result = !this["checkSuExists"]();
+    console.log(`RootBeer.checkSuExists result=${result}`);
+    return result;
+    }
+});
+
+```
+
+#### 함수 후킹 수행 및 결과 (Desktop cmd)
 
 ![image](https://github.com/user-attachments/assets/0490dc2e-957b-4cf3-a547-f559538ba20b)
 
