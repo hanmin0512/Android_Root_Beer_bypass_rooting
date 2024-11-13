@@ -113,3 +113,136 @@ Ctrl + f 를 이용해 각 내용들을 검색해 보겠다.
 
 BusyBox Binary, SU Binary에 대한 함수를 찾았다.
 
+추가로 2nd SU Binary를 찾기 위해 su를 검색해 보니 su에대한 함수를 하나 더 발견 할 수 있었다.
+
+![image](https://github.com/user-attachments/assets/07206906-1357-46c6-8ee2-6334a80877e8)
+
+이 3개의 함수를 동적으로 후킹 해보겠다.
+
+#### 함수 후킹 소스코드 작성성
+
+```
+// 자바 코드를 후킹할 것이기에 그것을 명시해주기 위한 소스코드 템플릿이며 js파일이다. beer.js로 저장
+
+Java.perform(function(){
+
+
+});
+
+```
+
+![image](https://github.com/user-attachments/assets/7c1fe1ed-e1cb-4ded-bdc0-6daa84aff1a9)
+
+복사한 코드를 후킹하기위해 복사해 소스코드 템플릿에 붙혀넣어준다.
+
+```
+
+// beer.js
+Java.perform(function(){
+    let RootBeer1 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForSuBinary"].implementation = function () {
+    console.log(`RootBeer.checkForSuBinary is called`);
+    let result = this["checkForSuBinary"]();
+    console.log(`RootBeer.checkForSuBinary result=${result}`);
+    return result;
+    }
+
+});
+
+```
+
+![image](https://github.com/user-attachments/assets/c442b54a-ff05-4f25-9503-7b194fffbb15)
+
+
+```
+
+// beer.js
+Java.perform(function(){
+    let RootBeer1 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForSuBinary"].implementation = function () {
+    console.log(`RootBeer.checkForSuBinary is called`);
+    let result = this["checkForSuBinary"]();
+    console.log(`RootBeer.checkForSuBinary result=${result}`);
+    return result;
+    }
+
+
+    let RootBeer2 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForBusyBoxBinary"].implementation = function () {
+    console.log(`RootBeer.checkForBusyBoxBinary is called`);
+    let result = this["checkForBusyBoxBinary"]();
+    console.log(`RootBeer.checkForBusyBoxBinary result=${result}`);
+    return result;
+    }
+
+});
+
+
+```
+
+![image](https://github.com/user-attachments/assets/7beb3773-23cd-46de-8064-9670cdfed738)
+
+
+```
+
+// beer.js
+Java.perform(function(){
+    let RootBeer1 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForSuBinary"].implementation = function () {
+    console.log(`RootBeer.checkForSuBinary is called`);
+    let result = this["checkForSuBinary"]();
+    console.log(`RootBeer.checkForSuBinary result=${result}`);
+    return result;
+    }
+
+
+    let RootBeer2 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForBusyBoxBinary"].implementation = function () {
+    console.log(`RootBeer.checkForBusyBoxBinary is called`);
+    let result = this["checkForBusyBoxBinary"]();
+    console.log(`RootBeer.checkForBusyBoxBinary result=${result}`);
+    return result;
+    }
+
+
+    let RootBeer3 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkSuExists"].implementation = function () {
+    console.log(`RootBeer.checkSuExists is called`);
+    let result = this["checkSuExists"]();
+    console.log(`RootBeer.checkSuExists result=${result}`);
+    return result;
+    }
+});
+
+```
+
+각 함수를 frida 스니펫으로 복사를 완료 했다.
+소스코드를 살펴 보면 return 값으로 result를 반환 하는 것을 볼 수있고, 각 함수는 boolean형 함수이다.
+그렇기에 return 값은 true, false 이다.
+여기서 result에 값을 받아올 때 앞에 '!' 를 붙혀 not연산을 하여 반대로 바꿔주면 될것이다.
+
+```
+
+// beer.js
+Java.perform(function(){
+    let RootBeer1 = Java.use("com.scottyab.rootbeer.RootBeer");
+    RootBeer["checkForSuBinary"].implementation = function () {
+    console.log(`RootBeer.checkForSuBinary is called`);
+    let result = !this["checkForSuBinary"]();
+    console.log(`RootBeer.checkForSuBinary result=${result}`);
+    return result;
+    }
+
+
+    let RootBeer2 = Java.use("com.scottyab.rootbeer.과(Desktop cmd)
+
+![image](https://github.com/user-attachments/assets/0490dc2e-957b-4cf3-a547-f559538ba20b)
+
+
+![image](https://github.com/user-attachments/assets/3e5d9a3e-79ab-4649-bb4f-a5cc4a74a16c)
+
+![image](https://github.com/user-attachments/assets/221e088c-30d3-4b43-bab1-42e8f410fa48)
+
+![image](https://github.com/user-attachments/assets/931fe8ca-e7d8-4148-a329-3ac129dae738)
+
+cmd 콘솔의 로그를 보면 알 수 있듯이 루팅 했냐? false를 반환하면서 루팅 탐지에 우회 할 수 있었다.
